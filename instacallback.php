@@ -54,43 +54,43 @@ if (isset($code)) {
 		<script src="https://vjs.zencdn.net/4.2/video.js"></script>
 		<script src="jquery.js"></script>
 		<script src="quickprint_interface.js?3"></script>
+		<link rel="stylesheet" type="text/css" href="instacallback.css">
 	</head>
 	<body>
 		<div class="container">
-			<header class="clearfix">
-				<h1>Instagram photos <span>taken by <? echo $data->user->username ?></span></h1>
-			</header>
+				<h1>Instagram photos taken by <?= $data->user->username ?></h1>
 			<div class="main">
-				<ul class="grid">
-				<?php
-					echo "<form action=\"quickprint_launch.php\" method=\"post\">";
-					// display all user uploads
-					foreach ($result->data as $media)
-					{
-						$content = "<li>";
-						
-						// output media
-						$image = $media->images->low_resolution->url;
-						$url = $media->images->standard_resolution->url;
-						$content .= "<input type=\"checkbox\" name=\"checklist[]\" value=\"{$url}\">";
-						$content .= "<img class=\"media\" src=\"{$image}\"/>";
-						
-						// create meta section
-						$avatar = $media->user->profile_picture;
-						$username = $media->user->username;
-						$comment = $media->caption->text;
-						$content .= "<div class=\"content\">
-													 <div class=\"comment\">{$comment}</div>
-												 </div>";
-						
-						// output media
-						echo $content . "</li>";
-						print_r($media->images->standard_resolution->url);
-					}
-					echo "<input type=\"submit\">";
-					echo "</form>";
-				?>
-				</ul>
+				<form action="quickprint_launch.php" method="post">
+					<ul class="grid">
+						<?php
+						// display all user uploads
+						foreach ($result->data as $media)
+						{
+							$content = "<li>";
+							
+							// output media
+							$image = $media->images->low_resolution->url;
+							$url = $media->images->standard_resolution->url;
+							$content .= "<input type=\"checkbox\" class=\"checkbox\" name=\"checklist[]\" value=\"{$url}\">";
+							$content .= "<img class=\"media\" src=\"{$image}\"/>";
+							
+							// create meta section
+							$avatar = $media->user->profile_picture;
+							$username = $media->user->username;
+							$comment = $media->caption->text;
+							$content .= "<div class=\"content\">
+														 <div class=\"comment\">{$comment}</div>
+													 </div>";
+							
+							// output media
+							echo $content . "</li>";
+						}
+						?>
+					</ul>
+					<div class="submit_div">
+						<input class="submit_button" type="submit">
+					</div>
+				</form>
 			</div>
 		</div>
 	</body>
