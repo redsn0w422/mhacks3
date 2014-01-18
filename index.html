@@ -6,24 +6,32 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+        <style>
+        	#container {
+        		background:blue;
+        	}
+        </style>
     </head>
     
-    </body>
+    <body>
+    	<h1> TEST </h1>
     	<div id="container">
     	<form action="phpscript.php" method="POST" name="introForm" id="introForm">
-    		<p>Username:</p>
+    		Username:
     		<input type="text" id="username" name="username" placeholder="username..."/>
     		</br>
-    		<p>Password:</p>
+    		Password:
     		<input type="password" id="password" name="password" />
     		</br>
+    		</br>
     		<input type="radio" name="SOCIAL_NETWORK" value="fb" />
-    		<p>Facebook</p>
+    		Facebook
     		<input type="radio" name="SOCIAL_NETWORK" value="insta" />
-    		<p>Instragram</p>
-    		<input type="submit" value="Submit!" />
-    	</form>
+    		Instragram
+    		</br>
+    		<input type="submit" value="Submit!" id="submit"/>
+    		<input type="button" value="GG!" id="saveButton" />
+	   	</form>
     	</div>
     </body>
 </html>
