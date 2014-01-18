@@ -1,5 +1,5 @@
 body {
-	background-color:blue;
+	background-color:black;
 	text-align: center;
 }
 
@@ -12,15 +12,17 @@ body {
     padding: 0 10px;
 }
 
-#header h1{
+#header {
     margin: 0;
     padding: 10px 0;
-    font-family: Courier New, monospace;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    color:white;
+    font-size: 3em;
 }
 
 #content {
     margin: 0 20px 0 20px;
-    font-family: Courier New, monospace;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
     color: white;
     margin-left: auto;
     margin-right: auto;
@@ -30,6 +32,10 @@ body {
 #footer {
     padding: 0 10px;
     font-family: Georgia, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em:
+    color:white;
 }
 
 #footer p{
