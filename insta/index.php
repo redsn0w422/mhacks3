@@ -7,8 +7,7 @@ require 'instagram.class.php';
 $instagram = new Instagram(array(
   'apiKey'      => '359a0cb55e014c2a853b77fed4769564',
   'apiSecret'   => 'a03c4453898846abbdadca739b4c1dde',
-  //'apiCallback' => 'http://yashamostofi.com/drinkspls/insta/callback.php'
-  'apiCallback' => 'localhost:5/mhacks/instacallback.php'
+  'apiCallback' => 'http://yashamostofi.com/drinkspls/insta/callback.php'
 ));
 
 // create login URL
