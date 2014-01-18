@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>pic print</title>
+		<link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>"'/>
+		<meta http-equiv="pragma" content="no-cache" /> 
+	</head>
+	<body>
+	<div id="container">
+		<div id="header">
+			<h1>pic print</h1>
+		</div>
+		
+		<div id="content">
+		<h2>pick your social network</h2>
+		<form action="fb.php" method="post" name="fbphpForm">
+        	<input type="image" src="facebook-connect-logo.png" id="fbConnect" />
+        </form>
+        <form action="insta.php" method="post" name="instaphpForm">
+          	<input type="image" src="instagram-connect-logo.png" id="instaConnect" />
+        </form>
+		</div>
+	
+		<div id="footer">
+        <p>&copy; gg</p>
+    	</div>
+    </div>
+	</body>
+</html>

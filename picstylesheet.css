@@ -1,0 +1,42 @@
+body {
+	background-color:blue;
+	text-align: center;
+}
+
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#header {
+    padding: 0 10px;
+}
+
+#header h1{
+    margin: 0;
+    padding: 10px 0;
+    font-family: Courier New, monospace;
+}
+
+#content {
+    margin: 0 20px 0 20px;
+    font-family: Courier New, monospace;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35em;
+}
+
+#footer {
+    padding: 0 10px;
+    font-family: Georgia, sans-serif;
+}
+
+#footer p{
+    margin: 0;
+    padding: 10px 0;
+}
+
+.clearFloat {
+    clear: both;
+}
