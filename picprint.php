@@ -1,4 +1,21 @@
 <?php
+
+echo <<<_END
+
+<html>
+    <head>
+        <title>pic print</title>
+        <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
+    </head>
+    <body>
+
+        <div id="container">
+            <div id="header">
+                pic print
+            </div>
+
+_END;
+
 // ********** INSTAGRAM ******************
 require 'instagram.class.php';
 $instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
@@ -8,7 +25,6 @@ $instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
 
 // create login URL
 $insta_loginUrl = $instagram->getLoginUrl();
-echo $insta_loginUrl;
 
 // ********** FACEBOOK ******************
 require 'facebook.php';
@@ -66,18 +82,6 @@ $styleSuffix = rand(1,1000);
 
 echo <<<_END
 
-<html>
-    <head>
-        <title>pic print</title>
-        <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
-    </head>
-    <body>
-
-        <div id="container">
-            <div id="header">
-                pic print
-            </div>
-
             <div id="content">
                 <h2>pick your social network</h2>
                 <a href="$fb_loginUrl">
@@ -97,7 +101,8 @@ echo <<<_END
                 <p>&copy; gg</p>
             </div>
         </div>
-    </body>
+
+	</body>
 </html>
 _END;
 ?>
