@@ -11,8 +11,11 @@ $insta_loginUrl = $instagram->getLoginUrl();
 // receive OAuth code parameter
 $code = $_GET['code'];
 
+$insta_active = false;
+
 // check whether the user has granted access
 if (isset($code)) {
+	$insta_active = true;
 
 	try {
 		// receive OAuth token object
@@ -27,10 +30,10 @@ if (isset($code)) {
 	}
 	catch (Exception $e) {
 //		echo "Caught exception: '{$e->getMessage()}'\n{$e}\n";
+		$insta_active = false;
 	}
-
 } else {
-
+	$insta_active = false;
 	// check whether an error occurred
 	if (isset($_GET['error'])) {
 		echo 'An error occurred: ' . $_GET['error_description'];
@@ -104,24 +107,22 @@ $styleSuffix = rand(1,1000);
                 </br>
                 </br>
             </div>
-            <? if ($user): ?>
+				<form action="quickprint_launch.php" method="post">
+				<? if ($user): ?>
             	<a href='<?=$logoutUrl ?>'>logout of facebook</a>
             
-				<form action="viewselected.php" method="post">
 			
 				<? foreach ($links as $link): ?>
 					<img src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
-						<input type='checkbox' name='check_list[]' value=<?= $link ?>/>
+						<input type='checkbox' name='checklist[]' value=<?= $link ?>/>
 						</br>
 				<? endforeach ?>
-				<input type="submit" value="Choose Selected"/>
 			<? endif; ?>
 
-			<? if (isset($code)): ?>
+			<? if ($insta_active): ?>
 				<div class="container">
 						<h1>Instagram photos taken by <?= $data->user->username ?></h1>
 					<div class="main">
-						<form action="quickprint_launch.php" method="post">
 							<ul class="grid">
 								<?php
 								// display all user uploads
@@ -148,13 +149,16 @@ $styleSuffix = rand(1,1000);
 								}
 								?>
 							</ul>
-							<div class="submit_div">
-								<input class="submit_button" type="submit">
-							</div>
-						</form>
 					</div>
 				</div>
 			<? endif; ?>
+
+			<? if ($user && $insta_active); ?>
+				<div class="submit_div">
+					<input class="submit_button" type="submit">
+				</div>
+			<? endif; ?>
+			</form>
 			
             <div id="footer">
                 <a href="http://www.mhacks.org/">
