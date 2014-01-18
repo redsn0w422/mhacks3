@@ -1,0 +1,26 @@
+-- early documentation --
+revision history:
+9:11 pm fri: added initial stuff
+9:18 : reverted back to some initial functionality (get stuff done)
+
+
+
+picture printer from Facebook and instagram
+
+
+   * graphics
+      * header graphics
+      * menu graphics
+   * front page
+      * loads the UI
+      * allows user to enter their username and password
+      * radiobutton for which network (Facebook vs instagram)
+      * sends to a PHP script (POST method pls)
+   * PHP script
+      * takes in the username and password, and then connects
+      * shows the user their pictures
+      * //allows them to select pictures (albums in FB, pics in INSTA)
+      * form for LOB or QuickPrint (mail vs. pick up)
+   * CSS stylesheets
+      * mobile stylesheet?
+      * desktop stylesheet?
