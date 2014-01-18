@@ -20,6 +20,8 @@ picture printer from Facebook and instagram
       * takes in the username and password, and then connects
       * shows the user their pictures
       * //allows them to select pictures (albums in FB, pics in INSTA)
+      * album for fb -- type in the name, check if exists, print the album
+      * all pics in INSTA 
       * form for LOB or QuickPrint (mail vs. pick up)
    * CSS stylesheets
       * mobile stylesheet?
