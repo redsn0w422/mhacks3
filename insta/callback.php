@@ -52,6 +52,8 @@ if (isset($code)) {
     <title>Instagram - photo stream</title>
     <link href="https://vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/4.2/video.js"></script>
+		<script src="jquery.js"></script>
+    <script src="quickprint_interface.js?3"></script>
   </head>
   <body>
     <div class="container">
@@ -61,63 +63,34 @@ if (isset($code)) {
       <div class="main">
         <ul class="grid">
         <?php
-          $arr = array();
-          // display all user likes
+					echo "<form action=\"quickprint_launch.php\" method=\"post\">";
+          // display all user uploads
           foreach ($result->data as $media) {
             $content = "<li>";
             
             // output media
-            if ($media->type === 'video') {
-              // video
-              $poster = $media->images->low_resolution->url;
-              $source = $media->videos->standard_resolution->url;
-              $content .= "<video class=\"media video-js vjs-default-skin\" width=\"250\" height=\"250\" poster=\"{$poster}\"
-                           data-setup='{\"controls\":true, \"preload\": \"auto\"}'>
-                             <source src=\"{$source}\" type=\"video/mp4\" />
-                           </video>";
-            } else {
-              // image
-              $image = $media->images->low_resolution->url;
-              $content .= "<img class=\"media\" src=\"{$image}\"/>";
-            }
+            $image = $media->images->low_resolution->url;
+            $url = $media->images->standard_resolution->url;
+            $content .= "<input type=\"checkbox\" name=\"checklist[]\" value=\"{$url}\">";
+            $content .= "<img class=\"media\" src=\"{$image}\"/>";
             
             // create meta section
             $avatar = $media->user->profile_picture;
             $username = $media->user->username;
             $comment = $media->caption->text;
             $content .= "<div class=\"content\">
-                           <div class=\"avatar\" style=\"background-image: url({$avatar})\"></div>
-                           <p>{$username}</p>
                            <div class=\"comment\">{$comment}</div>
                          </div>";
             
             // output media
             echo $content . "</li>";
             print_r($media->images->standard_resolution->url);
-            $arr[] = $media->images->standard_resolution->url;
           }
-          print_r($arr);
+					echo "<input type=\"submit\">";
+					echo "</form>";
         ?>
         </ul>
       </div>
     </div>
-    <!-- javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // rollover effect
-        $('li').hover(
-          function() {
-            var $image = $(this).find('.image');
-            var height = $image.height();
-            $image.stop().animate({ marginTop: -(height - 82) }, 1000);
-          }, function() {
-            var $image = $(this).find('.image');
-            var height = $image.height();
-            $image.stop().animate({ marginTop: '0px' }, 1000);
-          }
-        );
-      });
-    </script>
   </body>
 </html>
