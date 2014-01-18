@@ -1,7 +1,6 @@
 <?php
 // ********** INSTAGRAM ******************
 require 'instagram.class.php';
-echo "<p>hi</p>";
 $instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
 'apiSecret'=>'a03c4453898846abbdadca739b4c1dde',
 //'apiCallback'=>'localhost:5/mhacks/instacallback.php'));
@@ -49,7 +48,7 @@ if ($user) {
 		{
 		echo $check;
 		}
-	}
+		}
 	} 
 	catch (FacebookApiException $e) {
 		error_log($e);
@@ -62,6 +61,8 @@ $logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drin
 } else {
 $fb_loginUrl = $facebook->getLoginUrl(array('scope' => 'user_photos'));
 }
+
+$styleSuffix = rand(1,1000);
 
 echo <<<_END
 

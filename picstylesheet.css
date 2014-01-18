@@ -1,5 +1,5 @@
 body {
-	background-color:black;
+	background-color:white;
 	text-align: center;
 }
 
@@ -23,7 +23,7 @@ body {
 #content {
     margin: 0 20px 0 20px;
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    color: white;
+    color: black;
     margin-left: auto;
     margin-right: auto;
     width: 35em;
