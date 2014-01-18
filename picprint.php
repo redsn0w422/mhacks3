@@ -85,7 +85,7 @@ $styleSuffix = rand(1,1000);
 <html>
     <head>
         <title>pic print</title>
-        <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
+        <link rel='stylesheet' type='text/css' href='css/picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     </head>
@@ -153,9 +153,10 @@ $styleSuffix = rand(1,1000);
 				</div>
 			<? endif; ?>
 
-			<? if ($user && $insta_active); ?>
+			<? if ($user || $insta_active): ?>
 				<div class="submit_div">
-					<input class="submit_button" type="submit">
+					<input class="submit_button" type="submit" name="action" value="quick">
+					<input class="submit_button" type="submit" name="action" value="lob">
 				</div>
 			<? endif; ?>
 			</form>
