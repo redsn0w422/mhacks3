@@ -61,6 +61,7 @@ if (isset($code)) {
       <div class="main">
         <ul class="grid">
         <?php
+          $arr = array();
           // display all user likes
           foreach ($result->data as $media) {
             $content = "<li>";
@@ -92,7 +93,10 @@ if (isset($code)) {
             
             // output media
             echo $content . "</li>";
+            print_r($media->images->standard_resolution->url);
+            $arr[] = $media->images->standard_resolution->url;
           }
+          print_r($arr);
         ?>
         </ul>
       </div>
