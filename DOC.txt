@@ -11,18 +11,18 @@ picture printer from Facebook and instagram
    * graphics
       * header graphics
       * menu graphics
-   * front page
+   * front page - index.html
       * loads the UI
       * allows user to enter their username and password
       * radiobutton for which network (Facebook vs instagram)
       * sends to a PHP script (POST method pls)
-   * PHP script
+   * PHP script - phpscript.php
       * takes in the username and password, and then connects
       * shows the user their pictures
       * //allows them to select pictures (albums in FB, pics in INSTA)
       * album for fb -- type in the name, check if exists, print the album
       * all pics in INSTA 
       * form for LOB or QuickPrint (mail vs. pick up)
-   * CSS stylesheets
+   * CSS stylesheets - stylesheet.css
       * mobile stylesheet?
       * desktop stylesheet?
