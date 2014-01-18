@@ -1,4 +1,5 @@
 <?php
+// https://github.com/cosenary/Instagram-PHP-API
 
 require 'instagram.class.php';
 
@@ -20,7 +21,6 @@ $loginUrl = $instagram->getLoginUrl();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram - OAuth Login</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
     <style>
       .login {
         display: block;
@@ -37,16 +37,11 @@ $loginUrl = $instagram->getLoginUrl();
       </header>
       <div class="main">
         <ul class="grid">
-          <li><img src="assets/instagram-big.png" alt="Instagram logo"></li>
           <li>
-            <a class="login" href="<? echo $loginUrl ?>">» Login with Instagram</a>
+            <a class="login" href="<? echo $loginUrl ?>">Login with Instagram</a>
             <h>Use your Instagram account to login.</h4>
           </li>
         </ul>
-        <!-- GitHub project -->
-        <footer>
-          <p>created by <a href="https://github.com/cosenary/Instagram-PHP-API">cosenary's Instagram class</a>, available on GitHub</p>
-        </footer>
       </div>
     </div>
   </body>

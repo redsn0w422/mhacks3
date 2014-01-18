@@ -51,13 +51,11 @@ if (isset($code)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram - photo stream</title>
     <link href="https://vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
-    <link href="assets/style.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/4.2/video.js"></script>
   </head>
   <body>
     <div class="container">
       <header class="clearfix">
-        <img src="assets/instagram.png" alt="Instagram logo">
         <h1>Instagram photos <span>taken by <? echo $data->user->username ?></span></h1>
       </header>
       <div class="main">
@@ -97,11 +95,6 @@ if (isset($code)) {
           }
         ?>
         </ul>
-        <!-- GitHub project -->
-        <footer>
-          <p>created by <a href="https://github.com/cosenary/Instagram-PHP-API">cosenary's Instagram class</a>, available on GitHub</p>
-          <iframe width="95px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://ghbtns.com/github-btn.html?user=cosenary&repo=Instagram-PHP-API&type=fork&count=true"></iframe>
-        </footer>
       </div>
     </div>
     <!-- javascript -->
