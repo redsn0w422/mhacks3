@@ -1,10 +1,23 @@
 <html>
 	<head>
 		<title>pic print</title>
-		<link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>"'/>
-		<meta http-equiv="pragma" content="no-cache" /> 
+		<link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
 	</head>
 	<body>
+	
+<?php
+	require 'instagram.class.php';
+	echo "<p>hi</p>";
+	$instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
+	'apiSecret'=>'a03c4453898846abbdadca739b4c1dde',
+	'apiCallback'=>'localhost:5/mhacks/instacallback.php'));
+	  //'apiCallback' => 'http://yashamostofi.com/drinkspls/insta/callback.php'
+	  
+	// create login URL
+	$insta_loginUrl = $instagram->getLoginUrl();
+	echo $insta_loginUrl;
+?>
+	
 	<div id="container">
 		<div id="header">
 			pic print
@@ -12,16 +25,20 @@
 		
 		<div id="content">
 		<h2>pick your social network</h2>
-		<form action="fb.php" method="post" name="fbphpForm">
-        	<input type="image" src="facebook-connect-logo.png" id="fbConnect" class="button" />
-        </form>
-        <form action="insta.php" method="post" name="instaphpForm">
-          	<input type="image" src="instagram-connect-logo.png" id="instaConnect" class="button" />
-        </form>
+		<a href="<? echo $fb_loginUrl ?>">
+		<img src="facebook-connect-logo.png" alt="Connect with Facebook">
+		</a>
+		</br>
+		<a href="<?= $insta_loginUrl ?>">
+		<img src="instagram-connect-logo.png" alt="Connect with Instagram">
+		</a>
+		</br>
+		</br>
 		</div>
-	
+		
 		<div id="footer">
-		<img src="mhacks.png" height="50" width="50" />
+		<a href="http://www.mhacks.org/">
+		<img src="mhacks.png" height="50" width="50" /></a>
         <p>&copy; gg</p>
         </div>
     </div>
