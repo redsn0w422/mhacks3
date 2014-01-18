@@ -1,22 +1,23 @@
-<html>
-	<head>
-		<title>pic print</title>
-		<link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
-	</head>
-	<body>
-	
 <?php
 	require 'instagram.class.php';
 	echo "<p>hi</p>";
 	$instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
 	'apiSecret'=>'a03c4453898846abbdadca739b4c1dde',
-	'apiCallback'=>'localhost:5/mhacks/instacallback.php'));
-	  //'apiCallback' => 'http://yashamostofi.com/drinkspls/insta/callback.php'
+	//'apiCallback'=>'localhost:5/mhacks/instacallback.php'));
+	'apiCallback' => 'http://yashamostofi.com/drinkspls/swag/instacallback.php'));
 	  
 	// create login URL
 	$insta_loginUrl = $instagram->getLoginUrl();
 	echo $insta_loginUrl;
-?>
+	
+	echo <<<_END
+	
+	<html>
+	<head>
+		<title>pic print</title>
+		<link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
+	</head>
+	<body>
 	
 	<div id="container">
 		<div id="header">
@@ -29,7 +30,7 @@
 		<img src="facebook-connect-logo.png" alt="Connect with Facebook">
 		</a>
 		</br>
-		<a href="<?= $insta_loginUrl ?>">
+		<a href="$insta_loginUrl">
 		<img src="instagram-connect-logo.png" alt="Connect with Instagram">
 		</a>
 		</br>
@@ -44,3 +45,5 @@
     </div>
 	</body>
 </html>
+_END;
+?>
