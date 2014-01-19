@@ -1,5 +1,10 @@
 <?php
 	$images = $_POST["checklist"];
+	if (empty($images))
+	{
+		header('Location: http://yashamostofi.com/drinkspls/picprint.php');
+		exit;
+	}
 
 	$data = array(
 		'transaction' => 'photocheckoutv2',
@@ -12,6 +17,8 @@
 //				'affId' => 'extest1',
 		'appver' => '1.0',
 		'images' => $images,
+		'channelInfo' => 'web',
+		'callBackLink' => 'http://yashamostofi.com/drinkspls/picprint.php',
 	);
 
 	$data_str = json_encode($data);
