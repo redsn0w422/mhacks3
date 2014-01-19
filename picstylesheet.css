@@ -4,6 +4,8 @@ body {
   	overflow-x: hidden;
   	font-faily: Calibri, Arial, sans-serif;
   	background-image: url('background.jpg');
+  	background-position: center;
+  	background-repeat: no-repeat;
   	color:white;
 }
 

@@ -228,6 +228,8 @@ $styleSuffix = rand(1,1000);
 			<? endif; ?>
 			</form>
 			
+			</br class="clearFloat">
+			
             <div id="footer">
                 <a href="http://www.mhacks.org/">
                     <img src="mhacks.png" height="50" width="50" /></a>
