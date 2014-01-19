@@ -58,9 +58,42 @@ use Lob\Lob;
 		$apiKey = 'test_6a05f2e77654d976a6909be535a6fe4ee71';
 		$lob = new Lob($apiKey);
 		$lob->setVersion('v1'); // "v1" is the default value
+		$date = new DateTime();
+
+		try {
+    		// Returns a valid address
+    		$toAddress = $lob->addresses()->create(array(
+        	'name'              => 'Harr, // Required
+        	'address_line1'     => '123 Test Street', // Required
+        	'address_line2'     => 'Unit 199', // Optional
+        	'address_city'      => 'Mountain View', // Required
+        	'address_state'     => 'CA', // Required
+        	'address_country'   => 'US', // Required - Must be a 2 letter country short-name code (ISO 3316)
+        	'address_zip'       => '94085', // Required
+        	'email'             => 'harry@lob.com', // Optional
+        	'phone'             => '5555555555', // Optional
+    		));
+			} catch (\Lob\Exception\ValidationException $e) {
+    		// Do something
+		}
 		
+		try {
+    		// Returns a valid address
+    		$fromAddress = $lob->addresses()->create(array(
+        	'name'              => 'Harry Zhang', // Required
+        	'address_line1'     => '123 Test Street', // Required
+        	'address_line2'     => 'Unit 199', // Optional
+        	'address_city'      => 'Mountain View', // Required
+        	'address_state'     => 'CA', // Required
+        	'address_country'   => 'US', // Required - Must be a 2 letter country short-name code (ISO 3316)
+        	'address_zip'       => '94085', // Required
+        	'email'             => 'harry@lob.com', // Optional
+        	'phone'             => '5555555555', // Optional
+    		));
+			} catch (\Lob\Exception\ValidationException $e) {
+    		// Do something
+		}
 		
-			
 		// yo dawg we need PDFs
 		$lobObjects = array();
 		foreach ($images as $i=>$image)
@@ -82,8 +115,8 @@ use Lob\Lob;
 		try {
     		// Returns a valid job
     		$job = $lob->jobs()->create(array(
-        	'name'          => 'ICDA 5 Legislation',
-        	'to'            => 'adr_7fc7859e59649adc', // Required
+        	'name'          => $date->getTimestamp(),
+        	'to'            => 'adr_7fc7859e59649adc', 
         	'from'          => 'adr_eac8493309facf3b',
         	foreach ($lobObjects as $i=>$object)
 				{

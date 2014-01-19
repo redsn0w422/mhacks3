@@ -92,7 +92,25 @@ $styleSuffix = rand(1,1000);
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width" />        
-    </head>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>		
+		<script>
+			$('document').ready(function(){
+				$('#lob_extra_data').hide('fast');
+			});
+			
+			function checkRadio(){					
+				if ($('input[name=sendAPI]:checked').val() == "lob")
+				{
+					$('#lob_extra_data').show('fast');
+				}
+				else
+				{
+					$('#lob_extra_data').hide('fast');
+				}
+			}
+		</script>
+	</head>
     <body>
         <div id="container">
             <div id="header">
@@ -182,12 +200,31 @@ $styleSuffix = rand(1,1000);
 			<? endif; ?>
 
 			<? if ($user or $insta_active): ?>
-				<div class="submit_div">
-					<input type="radio" name="sendAPI" value="quick" />QuickPrints
+					<input type="radio" name="sendAPI" value="quick" onclick='checkRadio()' checked>QuickPrints
 					</br>
-					<input type="radio" name="sendAPI" value="lob" />Mail with Lob
+					<input type="radio" name="sendAPI" value="lob" id="lobRadio" onclick='checkRadio()'>Mail with Lob
+				<div id="lob_extra_data">
+					From... To...
+					</br>
+					<input type="text" size="25" name="fromName" placeholder="From..." />
+					<input type="text" size="25" name="toName" placeholder="To..." />
+					</br>
+					<input type="text" size="25" name="fromAddress" placeholder="Address line 1..." />
+					<input type="text" size="25" name="toAddress" placeholder="Address Line 1..." />
+					</br>
+					<input type="text" size="25" name="fromCity" placeholder="City..." />
+					<input type="text" size="25" name="toCity" placeholder="City..." />
+					</br>
+					<input type="text" size="25" name="fromState" placeholder="State..." />
+					<input type="text" size="25" name="toState" placeholder="State..." />
+					</br>
+					<input type="text" size="25" name="fromZipCode" placeholder="Zip Code..." />
+					<input type="text" size="25" name="toZipCode" placeholder="Zip Code..."/>
+				</div>
+				<div class="submit_div">
 					<input class="submit_button" type="submit" value="Submit" />
 				</div>
+				
 			<? endif; ?>
 			</form>
 			
