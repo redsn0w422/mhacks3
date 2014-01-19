@@ -125,12 +125,18 @@ $styleSuffix = rand(1,1000);
             
 				<form action="assets/api/quickprint_launch.php" method="post">
 			<? if ($user): ?>
-            	
-				<? foreach ($links as $link): ?>
-					<img src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
-						<input type='checkbox' name='checklist[]' value='162.243.204.101/api.php?url='<?= $link ?>'/>
-						</br>
-				<? endforeach ?>
+				<div class="container">
+					<h1>Facebook photos</h1>
+					<div class="main">
+						<ul class="grid">
+			
+							<? foreach ($links as $link): ?>
+								<li>
+									<img src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
+										<input type='checkbox' class='checkbox' name='checklist[]' value='162.243.204.101/api.php?url='<?= $link ?>'/>
+								</li>
+							<? endforeach ?>
+						</ul>
 			<? endif; ?>
 
 			<? if ($insta_active): ?>
@@ -165,7 +171,7 @@ $styleSuffix = rand(1,1000);
 				</div>
 			<? endif; ?>
 
-			<? if ($user || $insta_active): ?>
+			<? if ($user or $insta_active): ?>
 				<div class="submit_div">
 					<input class="submit_button" type="submit" name="action" value="quick">
 					<input class="submit_button" type="submit" name="action" value="lob">
