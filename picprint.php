@@ -4,7 +4,7 @@ require 'instagram.class.php';
 $instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
 'apiSecret'=>'a03c4453898846abbdadca739b4c1dde',
 //'apiCallback'=>'localhost:5/mhacks/instacallback.php'));
-'apiCallback' => 'http://yashamostofi.com/drinkspls/swag/picprint.php'));
+'apiCallback' => 'http://yashamostofi.com/drinkspls/picprint.php'));
 // create login URL
 $insta_loginUrl = $instagram->getLoginUrl();
 
@@ -73,7 +73,7 @@ if ($user) {
 
 // Login or logout url will be needed depending on current user state.
 if ($user) {
-$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/swag/assets/api/logout.php'));
+$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/logout.php'));
 } else {
 $fb_loginUrl = $facebook->getLoginUrl(array('scope' => 'user_photos'));
 }
@@ -85,7 +85,7 @@ $styleSuffix = rand(1,1000);
 <html>
     <head>
         <title>pic print</title>
-        <link rel='stylesheet' type='text/css' href='assets/css/picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
+        <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     </head>
@@ -99,12 +99,12 @@ $styleSuffix = rand(1,1000);
             	
             	<? if ($user): ?>
             		<a href='<?=$logoutUrl ?>'>
-            			<img src="assets/img/fb-out.png" alt="Disconnect Facebook">
+            			<img src="fb-out.png" alt="Disconnect Facebook">
             		</a>
             	<? endif; ?>
             	<? if (!($user)): ?>
             		<a href='<?=$fb_loginUrl ?>'>
-            			<img src="assets/img/fb-in.png" alt="Connect with Facebook">
+            			<img src="fb-in.png" alt="Connect with Facebook">
             		</a>
             	<? endif; ?>
             	
@@ -112,18 +112,18 @@ $styleSuffix = rand(1,1000);
             	
             	<? if ($insta_active): ?>
             		<a href="">
-            			<img src="assets/img/insta-out.png" alt="Disconnect Instagram">
+            			<img src="insta-out.png" alt="Disconnect Instagram">
             		</a>
             	<? endif; ?>
             	<? if (!($insta_active)): ?>
             		<a href='<?=$insta_loginUrl ?>'>
-            			<img src="assets/img/insta-in.png" alt="Connect with Instagram">
+            			<img src="insta-in.png" alt="Connect with Instagram">
             		</a>
             	<? endif; ?>          
 
             </div>
             
-				<form action="assets/api/quickprint_launch.php" method="post">
+				<form action="quickprint_launch.php" method="post">
 			<? if ($user): ?>
 				<div class="container">
 					<h1>Facebook photos</h1>
