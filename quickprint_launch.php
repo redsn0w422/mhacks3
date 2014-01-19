@@ -1,10 +1,17 @@
 <?php
+require_once "bootstrap.php";
+use Lob\Lob;
+
 	$images = $_POST["checklist"];
 	if (empty($images))
 	{
 		header('Location: http://yashamostofi.com/drinkspls/picprint.php');
 		exit;
 	}
+	
+	
+	if ($_POST['sendAPI'] == "quick")
+	{
 
 	$data = array(
 		'transaction' => 'photocheckoutv2',
@@ -45,13 +52,45 @@
 		header('Location: ' . $url_str);
 		exit();
 	}
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	</head>
-	<body>
-		Hello
-	</body>
-</html>
+	}
+	else
+	{
+		$apiKey = 'test_6a05f2e77654d976a6909be535a6fe4ee71';
+		$lob = new Lob($apiKey);
+		$lob->setVersion('v1'); // "v1" is the default value
+		
+		
+			
+		// yo dawg we need PDFs
+		$lobObjects = array();
+		foreach ($images as $i=>$image)
+		{	
+			try {
+    			// Returns a valid object
+    			$lobObjects[$i] = $lob->objects()->create(array(
+        			'name'        => $i,
+        			'file'        => '162.243.204.101/api.php?url=' . $image;
+        			'setting_id'  => 100, 
+        			'quantity'    => 1,
+   		 		));
+				} catch (\Lob\Exception\ValidationException $e) {
+					var_dump($lobObjects);
+    				die();
+			}
+		}
+		
+		try {
+    		// Returns a valid job
+    		$job = $lob->jobs()->create(array(
+        	'name'          => 'ICDA 5 Legislation',
+        	'to'            => 'adr_7fc7859e59649adc', // Required
+        	'from'          => 'adr_eac8493309facf3b',
+        	foreach ($lobObjects as $i=>$object)
+				{
+        	        'object' . $i => $object['id'];
+				}
+			));
+			} catch (\Lob\Exception\ValidationException $e) {
+    		// Do something
+		}
+	}
