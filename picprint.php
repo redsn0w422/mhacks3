@@ -132,11 +132,16 @@ $styleSuffix = rand(1,1000);
 			
 							<? foreach ($links as $link): ?>
 								<li>
-									<img src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
-										<input type='checkbox' class='checkbox' name='checklist[]' value='162.243.204.101/api.php?url='<?= $link ?>'/>
+									<input type='checkbox' class='checkbox' name='checklist[]' value='162.243.204.101/api.php?url='<?= $link ?>'/>
+									<img class="media" src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
+									<div class="content">
+										<div class="comment"></div>
+									</div>
 								</li>
 							<? endforeach ?>
 						</ul>
+					</div>
+				</div>
 			<? endif; ?>
 
 			<? if ($insta_active): ?>
