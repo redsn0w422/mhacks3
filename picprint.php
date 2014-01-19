@@ -73,7 +73,7 @@ if ($user) {
 
 // Login or logout url will be needed depending on current user state.
 if ($user) {
-$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/swag/logout.php'));
+$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/swag/assets/api/logout.php'));
 } else {
 $fb_loginUrl = $facebook->getLoginUrl(array('scope' => 'user_photos'));
 }
@@ -98,7 +98,7 @@ $styleSuffix = rand(1,1000);
             <div id="content">
             	
             	<? if ($user): ?>
-            		<a href='<?=$fb_logoutUrl ?>'>
+            		<a href='<?=$ogoutUrl ?>'>
             			<img src="assets/img/fb-out.png" alt="Disconnect Facebook">
             		</a>
             	<? endif; ?>
@@ -123,11 +123,9 @@ $styleSuffix = rand(1,1000);
 
             </div>
             
-				<form action="quickprint_launch.php" method="post">
+				<form action="assets/api/quickprint_launch.php" method="post">
 			<? if ($user): ?>
-            	<a href='<?=$logoutUrl ?>'>logout of facebook</a>
-            
-			
+            	
 				<? foreach ($links as $link): ?>
 					<img src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
 						<input type='checkbox' name='checklist[]' value='162.243.204.101/api.php?url='<?= $link ?>'/>
