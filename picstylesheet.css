@@ -182,8 +182,14 @@ img {
 
 .submit_button {
   margin: 0 auto;
-  width: 5em;
+  width: 6em;
   height: 3em;
+  border: 2px solid #eee;
+}
+
+.submit_button:hover {
+	width: 7em;
+	height: 4em;
 }
 
 .content > p {

@@ -88,6 +88,7 @@ $styleSuffix = rand(1,1000);
         <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<meta name="viewport" content="width=device-width" />        
     </head>
     <body>
         <div id="container">
@@ -127,7 +128,7 @@ $styleSuffix = rand(1,1000);
 				<form action="quickprint_launch.php" method="post">
 			<? if ($user): ?>
 				<div class="container">
-					<h1>Facebook photos</h1>
+					<h3>facebook</h3>
 					<div class="main">
 						<ul class="grid">
 			

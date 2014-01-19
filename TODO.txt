@@ -1,0 +1,5 @@
+todo list
+
+- fix instagram log out
+- LOB/payment
+- css for mobile devices
