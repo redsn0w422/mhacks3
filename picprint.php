@@ -200,9 +200,11 @@ $styleSuffix = rand(1,1000);
 			<? endif; ?>
 
 			<? if ($user or $insta_active): ?>
-					<input type="radio" name="sendAPI" value="quick" onclick='checkRadio()' checked>QuickPrints
-					</br>
-					<input type="radio" name="sendAPI" value="lob" id="lobRadio" onclick='checkRadio()'>Mail with Lob
+					<p class="radioLabel">
+					<input type="radio" name="sendAPI" value="quick" onclick='checkRadio()' checked>
+					QuickPrints 
+					<input type="radio" name="sendAPI" value="lob" id="lobRadio" onclick='checkRadio()'>
+					Mail with Lob</p>
 				<div id="lob_extra_data">
 					From... To...
 					</br>
@@ -222,7 +224,7 @@ $styleSuffix = rand(1,1000);
 					<input type="text" size="25" name="toZipCode" placeholder="Zip Code..."/>
 				</div>
 				<div class="submit_div">
-					<input class="submit_button" type="submit" value="Submit" />
+					<input class="submit_button" type="submit" value="Submit" id="final_submit" />
 				</div>
 				
 			<? endif; ?>

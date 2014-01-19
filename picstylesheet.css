@@ -2,10 +2,9 @@ body {
 	text-align: center;
   	overflow: scroll;
   	overflow-x: hidden;
-  	font-faily: Calibri, Arial, sans-serif;
   	background-image: url('background.jpg');
   	background-position: center;
-  	background-repeat: no-repeat;
+  	background-repeat: repeat-y;
   	color:white;
 }
 
@@ -27,7 +26,7 @@ body {
 
 #content {
     margin: 0 20px 0 20px;
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     margin-left: auto;
     margin-right: auto;
     width: 35em;
@@ -184,13 +183,26 @@ img {
   border: 2px solid #eee;
 }
 
-.submit_button:hover {
-	width: 7em;
-	height: 4em;
-}
 
 .content > p {
   display: inline-block;
   color: #9BA6B0;
   font-weight: 500;
+}
+
+.radioLabel {
+	font-family: Brushstroke, fantasy;
+	font-size: 16px;
+}
+
+#finalSubmit {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width: 6em;
+	height: 3em;
+}
+
+#finalSubmit:hover {
+	width: 7em;
+	height: 4em;
 }
