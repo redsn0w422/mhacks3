@@ -136,6 +136,8 @@ h1 {
   border-radius: 3px;
   position: relative;
   overflow: hidden;
+	width: 250px;
+	height: 250px
 }
 
 .media {
@@ -145,15 +147,12 @@ h1 {
   z-index: 1;
 }
 
-img {
-}
-
 .checkbox {
   position: absolute;
   left: 0px;
   width: 2em;
   height: 2em;
-  z-index: 5;
+  z-index: 2;
 }
 
 .content {
