@@ -112,7 +112,7 @@ $styleSuffix = rand(1,1000);
             	</br>
             	
             	<? if ($insta_active): ?>
-            		<a href="">
+							<a href="https://instagram.com/accounts/logout/">
             			<img src="insta-out.png" alt="Disconnect Instagram">
             		</a>
             	<? endif; ?>
