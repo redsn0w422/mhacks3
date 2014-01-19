@@ -3,11 +3,11 @@ require_once "bootstrap.php";
 use Lob\Lob;
 
 	$images = $_POST["checklist"];
-	//if (empty($images))
-	//{
-	//	header('Location: http://yashamostofi.com/drinkspls/picprint.php');
-	//	exit;
-	//}
+	if (empty($images))
+	{
+		header('Location: http://yashamostofi.com/drinkspls/picprint.php');
+		exit;
+	}
 	
 	
 	if ($_POST['sendAPI'] == "quick")
@@ -60,11 +60,9 @@ use Lob\Lob;
 		$lob->setVersion('v1'); // "v1" is the default value
 		$date = new DateTime();
 		
-		var_dump(get_class($lob->settings()));
-		echo "</br></br></br>";
-		$settingList = $lob->settings()->retrieveList();
-		var_dump($settingList);
-		die();
+		//var_dump(get_class($lob->settings()));
+		//echo "</br></br></br>";
+		//$settingList = $lob->settings()->retrieveList();
 
 		try {
     		// Returns a valid address
@@ -76,7 +74,6 @@ use Lob\Lob;
         	'address_country'   => 'US', 
         	'address_zip'       =>  $_POST['toZipCode'],
     		));
-    		echo "to address made successfully.";
 			} catch (\Lob\Exception\ValidationException $e) {
     		var_dump($toAddress);
     		die();
@@ -93,7 +90,6 @@ use Lob\Lob;
         	'address_country'   => 'US', 
         	'address_zip'       =>  $_POST['fromZipCode'],
     		));
-    		echo "from address made successfully.";
 			} catch (\Lob\Exception\ValidationException $e) {
     		var_dump($fromAddress);
     		die();
@@ -111,8 +107,6 @@ use Lob\Lob;
         			'setting_id'  => 101, 
         			'quantity'    => 1,
    		 		));
-   		 		echo "object made.";
-   		 		echo $image;
 				} catch (\Lob\Exception\ValidationException $e) {
 					var_dump($lobObjects);
 					echo $e;
@@ -128,15 +122,23 @@ use Lob\Lob;
 		
 		try {
     		// Returns a valid job
-    		$job = $lob->jobs()->create(array(
-        	'name'          => $date->getTimestamp(),
+    		$jobArray = array(
+    		'name'          => $date->getTimestamp(),
         	'to'            => $toAddress['id'], 
         	'from'          => $fromAddress['id'],
-        	'object1'		=> $lobObjectIDS,
-			));
-			echo "job made.";
+        	);
+        	// append jobs
+        	foreach ($lobObjectIDS as $i=>$obj)
+        	{
+        		$jobArray['object'.($i+1)] = $obj;
+        	}
+    		
+    		$job = $lob->jobs()->$jobArray;
+        	
 			} catch (\Lob\Exception\ValidationException $e) {
     		var_dump($job);
     		die();
 		}
+	 echo "Lob print job succesfully made!";
 	}
+	// make error page and redirect to error page

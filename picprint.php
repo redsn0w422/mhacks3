@@ -133,7 +133,7 @@ $styleSuffix = rand(1,1000);
             	</br>
             	
             	<? if ($insta_active): ?>
-							<a href="https://instagram.com/accounts/logout/">
+							<a href="./picprint.php">
             			<img src="insta-out.png" alt="Disconnect Instagram">
             		</a>
             	<? endif; ?>
@@ -198,13 +198,15 @@ $styleSuffix = rand(1,1000);
 					</div>
 				</div>
 			<? endif; ?>
-
+	
 			<? if ($user or $insta_active): ?>
 					<p class="radioLabel">
 					<input type="radio" name="sendAPI" value="quick" onclick='checkRadio()' checked>
-					QuickPrints 
+					QuickPrint with Walgreens
+					<!--
 					<input type="radio" name="sendAPI" value="lob" id="lobRadio" onclick='checkRadio()'>
 					Mail with Lob</p>
+					-->
 				<div id="lob_extra_data">
 					From... To...
 					</br>
@@ -229,7 +231,7 @@ $styleSuffix = rand(1,1000);
 				
 			<? endif; ?>
 			</form>
-			
+
 			</br class="clearFloat">
 			
             <div id="footer">
