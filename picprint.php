@@ -122,6 +122,7 @@ $styleSuffix = rand(1,1000);
             	<? endif; ?>          
 
             </div>
+					</div>
             
 				<form action="quickprint_launch.php" method="post">
 			<? if ($user): ?>
@@ -189,7 +190,6 @@ $styleSuffix = rand(1,1000);
                     <img src="mhacks.png" height="50" width="50" /></a>
                 <p>&copy; gg</p>
             </div>
-        </div>
 
 	</body>
 </html>

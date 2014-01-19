@@ -137,7 +137,7 @@ h1 {
   position: relative;
   overflow: hidden;
 	width: 250px;
-	height: 250px
+	height: 250px;
 }
 
 .media {
@@ -145,6 +145,11 @@ h1 {
   left: 0;
   top: 0;
   z-index: 1;
+}
+
+img {
+	max-height: 250px;
+	max-width: 250px;
 }
 
 .checkbox {
@@ -159,8 +164,6 @@ h1 {
   padding: 100px 8px 8px;
   position: absolute;
   background: #edeff0;
-  width: 250px;
-  height: 250px;
   z-index: -1;
 }
 
