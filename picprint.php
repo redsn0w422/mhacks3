@@ -98,7 +98,7 @@ $styleSuffix = rand(1,1000);
             <div id="content">
             	
             	<? if ($user): ?>
-            		<a href='<?=$ogoutUrl ?>'>
+            		<a href='<?=$logoutUrl ?>'>
             			<img src="assets/img/fb-out.png" alt="Disconnect Facebook">
             		</a>
             	<? endif; ?>
