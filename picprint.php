@@ -231,7 +231,9 @@ $styleSuffix = rand(1,1000);
             <div id="footer">
                 <a href="http://www.mhacks.org/">
                     <img src="mhacks.png" height="50" width="50" /></a>
-                <p>&copy; gg</p>
+                <p><a href="mailto:yasha.mostofi@gmail.com">Yasha Mostofi, </a>
+                	<a href="mailto:briantruong777@gmail.com">Brian Truong, </a>
+                	<a href="mailto:sonofthebrownguy@gmail.com">Kian Fotovat</a></p>
             </div>
 
 	</body>

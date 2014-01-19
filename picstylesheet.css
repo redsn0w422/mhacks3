@@ -3,7 +3,7 @@ body {
   	overflow: scroll;
   	overflow-x: hidden;
   	font-faily: Calibri, Arial, sans-serif;
-  	background-color:black;
+  	background-image: url('background.jpg');
   	color:white;
 }
 

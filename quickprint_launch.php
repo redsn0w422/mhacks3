@@ -3,11 +3,11 @@ require_once "bootstrap.php";
 use Lob\Lob;
 
 	$images = $_POST["checklist"];
-	if (empty($images))
-	{
-		header('Location: http://yashamostofi.com/drinkspls/picprint.php');
-		exit;
-	}
+	//if (empty($images))
+	//{
+	//	header('Location: http://yashamostofi.com/drinkspls/picprint.php');
+	//	exit;
+	//}
 	
 	
 	if ($_POST['sendAPI'] == "quick")
@@ -59,39 +59,44 @@ use Lob\Lob;
 		$lob = new Lob($apiKey);
 		$lob->setVersion('v1'); // "v1" is the default value
 		$date = new DateTime();
+		
+		var_dump(get_class($lob->settings()));
+		echo "</br></br></br>";
+		$settingList = $lob->settings()->retrieveList();
+		var_dump($settingList);
+		die();
 
 		try {
     		// Returns a valid address
     		$toAddress = $lob->addresses()->create(array(
-        	'name'              => 'Harr, // Required
-        	'address_line1'     => '123 Test Street', // Required
-        	'address_line2'     => 'Unit 199', // Optional
-        	'address_city'      => 'Mountain View', // Required
-        	'address_state'     => 'CA', // Required
-        	'address_country'   => 'US', // Required - Must be a 2 letter country short-name code (ISO 3316)
-        	'address_zip'       => '94085', // Required
-        	'email'             => 'harry@lob.com', // Optional
-        	'phone'             => '5555555555', // Optional
+        	'name'              =>  $_POST['toName'], 
+        	'address_line1'     =>  $_POST['toAddress'],
+        	'address_city'      =>  $_POST['toCity'],
+        	'address_state'     =>  $_POST['toState'],
+        	'address_country'   => 'US', 
+        	'address_zip'       =>  $_POST['toZipCode'],
     		));
+    		echo "to address made successfully.";
 			} catch (\Lob\Exception\ValidationException $e) {
-    		// Do something
+    		var_dump($toAddress);
+    		die();
 		}
+		
 		
 		try {
     		// Returns a valid address
     		$fromAddress = $lob->addresses()->create(array(
-        	'name'              => 'Harry Zhang', // Required
-        	'address_line1'     => '123 Test Street', // Required
-        	'address_line2'     => 'Unit 199', // Optional
-        	'address_city'      => 'Mountain View', // Required
-        	'address_state'     => 'CA', // Required
-        	'address_country'   => 'US', // Required - Must be a 2 letter country short-name code (ISO 3316)
-        	'address_zip'       => '94085', // Required
-        	'email'             => 'harry@lob.com', // Optional
-        	'phone'             => '5555555555', // Optional
+        	'name'              =>  $_POST['fromName'], 
+        	'address_line1'     =>  $_POST['fromAddress'],
+        	'address_city'      =>  $_POST['fromCity'],
+        	'address_state'     =>  $_POST['fromState'],
+        	'address_country'   => 'US', 
+        	'address_zip'       =>  $_POST['fromZipCode'],
     		));
+    		echo "from address made successfully.";
 			} catch (\Lob\Exception\ValidationException $e) {
-    		// Do something
+    		var_dump($fromAddress);
+    		die();
 		}
 		
 		// yo dawg we need PDFs
@@ -102,28 +107,36 @@ use Lob\Lob;
     			// Returns a valid object
     			$lobObjects[$i] = $lob->objects()->create(array(
         			'name'        => $i,
-        			'file'        => '162.243.204.101/api.php?url=' . $image;
-        			'setting_id'  => 100, 
+        			'file'        => '162.243.204.101/api.php?url=' . $image,
+        			'setting_id'  => 101, 
         			'quantity'    => 1,
    		 		));
+   		 		echo "object made.";
+   		 		echo $image;
 				} catch (\Lob\Exception\ValidationException $e) {
 					var_dump($lobObjects);
+					echo $e;
     				die();
 			}
+		}
+				
+		$lobObjectIDS = array();
+		foreach ($lobObjects as $i=>$object)
+		{
+        	        $lobOBjectIDS[$i] = $object['id'];
 		}
 		
 		try {
     		// Returns a valid job
     		$job = $lob->jobs()->create(array(
         	'name'          => $date->getTimestamp(),
-        	'to'            => 'adr_7fc7859e59649adc', 
-        	'from'          => 'adr_eac8493309facf3b',
-        	foreach ($lobObjects as $i=>$object)
-				{
-        	        'object' . $i => $object['id'];
-				}
+        	'to'            => $toAddress['id'], 
+        	'from'          => $fromAddress['id'],
+        	'object1'		=> $lobObjectIDS,
 			));
+			echo "job made.";
 			} catch (\Lob\Exception\ValidationException $e) {
-    		// Do something
+    		var_dump($job);
+    		die();
 		}
 	}
