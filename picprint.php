@@ -1,4 +1,7 @@
 <?php
+require_once "bootstrap.php";
+use Lob\Lob;
+
 // ********** INSTAGRAM ******************
 require 'instagram.class.php';
 $instagram = new Instagram(array('apiKey'=>'359a0cb55e014c2a853b77fed4769564',
@@ -134,7 +137,7 @@ $styleSuffix = rand(1,1000);
 			
 							<? foreach ($links as $link): ?>
 								<li>
-									<input type='checkbox' class='checkbox' name='checklist[]' value='162.243.204.101/api.php?url='<?= $link ?>'/>
+									<input type='checkbox' class='checkbox' name='checklist[]' value='<?= $link ?>'/>
 									<img class="media" src ="https://i.embed.ly/1/display?url=<?= $link ?>&key=f4a9399a56fe4b6eb8ec6cd74c065b0f"/>
 									<div class="content">
 										<div class="comment"></div>
@@ -160,7 +163,7 @@ $styleSuffix = rand(1,1000);
 									// output media
 									$image = $media->images->low_resolution->url;
 									$url = $media->images->standard_resolution->url;
-									$content .= "<input type=\"checkbox\" class=\"checkbox\" name=\"checklist[]\" value=\"162.243.204.101/api.php?url={$url}\">";
+									$content .= "<input type=\"checkbox\" class=\"checkbox\" name=\"checklist[]\" value=\"{$url}\">";
 									$content .= "<img class=\"media\" src=\"{$image}\"/>";
 									
 									// create meta section
@@ -180,8 +183,10 @@ $styleSuffix = rand(1,1000);
 
 			<? if ($user or $insta_active): ?>
 				<div class="submit_div">
-					<input class="submit_button" type="submit" name="action" value="quick">
-					<input class="submit_button" type="submit" name="action" value="lob">
+					<input type="radio" name="sendAPI" value="quick" />QuickPrints
+					</br>
+					<input type="radio" name="sendAPI" value="lob" />Mail with Lob
+					<input class="submit_button" type="submit" value="Submit" />
 				</div>
 			<? endif; ?>
 			</form>

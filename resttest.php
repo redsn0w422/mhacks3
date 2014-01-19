@@ -20,7 +20,7 @@ function CallAPI($method, $url, $data = false)
             break;
         default:
             if ($data)
-                $url = sprintf("%s?%s", $url, http_build_query($data));
+                $url = sprintf("%s?%s", $url, json_encode($data));
     }
 
     // Optional Authentication:
@@ -33,12 +33,13 @@ function CallAPI($method, $url, $data = false)
     return curl_exec($curl);
 }
 
-$send = array(
-'name' => 'Test Job Number One',
-'to' => 'adr_7fc7859e59649adc',
-'from' => 'adr_eac8493309facf3b',
-'object1' => 'obj_be9c671ac1a8ff49');
+$send = array();
+$send['name'] = 'Test Job Number One';
+$send['to'] = 'adr_7fc7859e59649adc';
+$send['from'] = 'adr_eac8493309facf3b';
+$send['object1'] = 'obj_be9c671ac1a8ff49';
 
+print_r($send);
 
 print_r(CallAPI("POST", "https://api.lob.com/v1/jobs", $send));
 ?>

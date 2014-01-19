@@ -1,0 +1,6 @@
+{
+	"name": "naperville/pic-print",
+	"require": {
+		"lob/lob-php": "1.0.*@dev"	
+	}
+}

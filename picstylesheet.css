@@ -1,8 +1,9 @@
 body {
 	background-color:black;
 	text-align: center;
-  overflow: scroll;
-  overflow-x: hidden;
+  	overflow: scroll;
+  	overflow-x: hidden;
+  	background-image: url('background.jpg');
 }
 
 #container {
