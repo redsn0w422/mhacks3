@@ -1,0 +1,208 @@
+body {
+	text-align: center;
+  	overflow: scroll;
+  	overflow-x: hidden;
+  	background-image: url('background.jpg');
+  	background-position: center;
+  	background-repeat: repeat-y;
+  	color:white;
+}
+
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#header {
+    padding: 0 10px;
+}
+
+#header {
+    margin: 0;
+    padding: 10px 0;
+    font-family: 'Lobster', cursive;
+    font-size: 3em;
+}
+
+#content {
+    margin: 0 20px 0 20px;
+    font-family: Arial, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35em;
+}
+
+#footer {
+    padding: 0 10px;
+    font-family: Georgia, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em:
+}
+
+#footer p{
+    margin: 0;
+    padding: 10px 0;
+}
+
+.clearFloat {
+    clear: both;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.container > header {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 30px 50px 30px;
+}
+
+.container > header {
+  padding: 60px 30px 50px;
+  text-align: center;
+}
+
+.container > header h1 {
+  font-size: 34px;
+  line-height: 38px;
+  margin: 0 auto;
+  width: 100%;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+.container > header h1 span {
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.main > footer {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.main > footer p {
+  display: block;
+  padding: 10px;
+}
+
+.grid {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.grid li {
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+  vertical-align: top;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+	width: 250px;
+	height: 250px;
+}
+
+.media {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+img {
+	max-height: 250px;
+	max-width: 250px;
+}
+
+.checkbox {
+  position: absolute;
+  left: 0px;
+  width: 2em;
+  height: 2em;
+  z-index: 2;
+}
+
+.content {
+  padding: 100px 8px 8px;
+  position: absolute;
+  background: #edeff0;
+  z-index: -1;
+}
+
+.comment {
+  margin-top: 12px;
+  color: #b7c0c7;
+  font-size: 14px;
+  max-height: 88px;
+  overflow: hidden;
+}
+
+.submit_div {
+  width: 100%;
+  text-align: center;
+}
+
+.submit_button {
+  margin: 0 auto;
+  width: 6em;
+  height: 3em;
+  border: 2px solid #eee;
+}
+
+
+.content > p {
+  display: inline-block;
+  color: #9BA6B0;
+  font-weight: 500;
+}
+
+.radioLabel {
+	font-family: Brushstroke, fantasy;
+	font-size: 16px;
+}
+
+#finalSubmit {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width: 6em;
+	height: 3em;
+}
+
+#finalSubmit:hover {
+	width: 7em;
+	height: 4em;
+}
