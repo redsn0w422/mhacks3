@@ -1,4 +1,4 @@
-picprint
-========
+mhacks3
+=======
 
-Source code for our MHacks 3 project, Pic Print. 
+Our project repo
