@@ -205,8 +205,8 @@ if ($user) {
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
-    location.reload(true);
   }
+location.reload(true);
 </script>
 
 <!--
