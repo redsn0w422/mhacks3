@@ -204,6 +204,7 @@ if ($user) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+      location.reload(forceGet);
     });
   }
 </script>
@@ -213,7 +214,7 @@ if ($user) {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<div class="fb-login-button" data-auto-logout-link="true" scopescope="public_profile,user_photos" onlogin="checkLoginState();"></div>
+<div class="fb-login-button" data-auto-logout-link="true" scope="public_profile,user_photos" onlogin="checkLoginState();"></div>
 <div id="status">
 </div>
        <!-- <div id="fb-root"></div>
