@@ -143,12 +143,12 @@ if ($user) {
             <div id="content">
             	<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
        <!--     	? if ($user): ?>
-            			<a href='<?=$logoutUrl ?>'>
+            			<a href='?=$logoutUrl ?>'>
             			<img src="fb-out.png" alt="Disconnect Facebook">
             		</a>
             	? endif; ?>
             	? if (!($user)): ?>
-            		<a href='<?=$fb_loginUrl ?>'>
+            		<a href='?=$fb_loginUrl ?>'>
             			<img src="fb-in.png" alt="Connect with Facebook">
             		</a>
             	? endif; ?>
