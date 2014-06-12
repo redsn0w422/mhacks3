@@ -204,8 +204,8 @@ if ($user) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-      location.reload(forceGet);
     });
+    location.reload(true);
   }
 </script>
 
