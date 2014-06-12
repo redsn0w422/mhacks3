@@ -214,7 +214,7 @@ if ($user) {
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,photos" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,user_photos" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
