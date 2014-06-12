@@ -88,6 +88,22 @@ $styleSuffix = rand(1,1000);
 <html>
     <head>
         <title>pic print</title>
+        <script>
+      		window.fbAsyncInit = function() {
+        		FB.init({
+          			appId      : '{your-app-id}',
+          			xfbml      : true,
+          			version    : 'v2.0'
+        		});
+      		};
+		(function(d, s, id){
+         		var js, fjs = d.getElementsByTagName(s)[0];
+         		if (d.getElementById(id)) {return;}
+         		js = d.createElement(s); js.id = id;
+         		js.src = "//connect.facebook.net/en_US/sdk.js";
+         		fjs.parentNode.insertBefore(js, fjs);
+       			}(document, 'script', 'facebook-jssdk'));
+    	</script>
         <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
