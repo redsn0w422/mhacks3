@@ -72,37 +72,11 @@ if ($user) {
 		$user = null;
 	}
 }
-
-// Login or logout url will be needed depending on current user state. --NO LONGER NEEDED
-//if ($user) {
-//$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/logout.php'));
-//} else {
-//$fb_loginUrl = $facebook->getLoginUrl(array('scope' => 'user_photos'));
-///}
-//
-//$styleSuffix = rand(1,1000);
-//
-//?>
+?>
 
 <html>
     <head>
         <title>pic print</title>
-        <!--<script>
-      		window.fbAsyncInit = function() {
-        		FB.init({
-          			appId      : '1414991652077072',
-          			xfbml      : true,
-          			version    : 'v2.0'
-        		});
-      		};
-		(function(d, s, id){
-         		var js, fjs = d.getElementsByTagName(s)[0];
-         		if (d.getElementById(id)) {return;}
-         		js = d.createElement(s); js.id = id;
-         		js.src = "//connect.facebook.net/en_US/sdk.js";
-         		fjs.parentNode.insertBefore(js, fjs);
-       			}(document, 'script', 'facebook-jssdk'));
-    	</script> -->
         <link rel='stylesheet' type='text/css' href='picstylesheet.css?id=<?php echo rand(1,1000); ?>'/>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -219,35 +193,8 @@ if ($user) {
   the FB.login() function when clicked.
 -->
 <div class="fb-login-button" data-auto-logout-link="true" scope="public_profile,user_photos" onlogin="checkLoginState();location.reload(true);"></div>
-<div id="status">
-</div>
-       <!-- <div id="fb-root"></div>
-		<script>(function(d, s, id) {
-  			var js, fjs = d.getElementsByTagName(s)[0];
-  			if (d.getElementById(id)) return;
-  			js = d.createElement(s); js.id = id;
-  			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1414991652077072&version=v2.0";
-  			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
-        <div id="container">
-            <div id="header">
-                pic print
-            </div>
-
-            <div id="content">
-            	<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
-            	? if ($user): ?>
-            			<a href='?=$logoutUrl ?>'>
-            			<img src="fb-out.png" alt="Disconnect Facebook">
-            		</a>
-            	? endif; ?>
-            	? if (!($user)): ?>
-            		<a href='?=$fb_loginUrl ?>'>
-            			<img src="fb-in.png" alt="Connect with Facebook">
-            		</a>
-            	? endif; ?>
-            	
-            -->	</br>
+<div id="status"></div>
+       </br>
             	
             	<? if ($insta_active): ?>
 							<a href="./picprint.php">
