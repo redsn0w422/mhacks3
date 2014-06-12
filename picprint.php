@@ -87,12 +87,6 @@ if ($user) {
 <html>
     <head>
         <title>pic print</title>
-        <script>
-        	var login = document.getElementById("fb-login");
-        	login.onClick = function(){
-        	location.reload(true);
-        	}
-        </script>
         <!--<script>
       		window.fbAsyncInit = function() {
         		FB.init({
@@ -133,6 +127,11 @@ if ($user) {
 		</script>
 	</head>
     <body>
+    <script>
+    	function refresh(){
+    		location.reload(true);
+    	}
+    </script>
     <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -219,7 +218,8 @@ if ($user) {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<div id="fb-login" class="fb-login-button" data-auto-logout-link="true" scope="public_profile,user_photos" onlogin="checkLoginState();">
+<div id="fb-login" class="fb-login-button" onclick="refresh()" data-auto-logout-link="true" scope="public_profile,user_photos" onlogin="checkLoginState();">
+	
 </div>
 <div id="status">
 </div>
