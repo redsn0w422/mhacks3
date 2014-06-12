@@ -44,37 +44,36 @@ if (isset($code)) {
 }
 
 // ********** FACEBOOK ******************
-//require 'facebook.php';
-//$facebook = new Facebook(array(
-//'appId'  => '1414991652077072',
-//'secret' => 'd7f434a8b143b848819e782d7d184645',
-//));
+require 'facebook.php';
+$facebook = new Facebook(array(
+'appId'  => '1414991652077072',
+'secret' => 'd7f434a8b143b848819e782d7d184645',
+));
 
-//Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
-//Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
-//$user = $facebook->getUser();
+Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
+$user = $facebook->getUser();
+if ($user) {
+	try {
+		$user_profile = $facebook->api($facebook->getUser() . '/photos/uploaded', array('access_token' => $facebook->getAccessToken()));
+		$pics = $user_profile;
+		$pics1 = $pics['data'];
+		$links = array();
+		$num = 0;
+		foreach($pics1 as $p)
+		{
+			$links[$num] = $p['source'];
+			$num = $num+1;
+		}
+		
+	} 
+	catch (FacebookApiException $e) {
+		error_log($e);
+		$user = null;
+	}
+}
 
-//if ($user) {
-//	try {
-//		$user_profile = $facebook->api($facebook->getUser() . '/photos/uploaded', array('access_token' => $facebook->getAccessToken()));
-//		$pics = $user_profile;
-//		$pics1 = $pics['data'];
-//		$links = array();
-//		$num = 0;
-//		foreach($pics1 as $p)
-//		{
-//			$links[$num] = $p['source'];
-//			$num = $num+1;
-//		}
-//		
-//	} 
-//	catch (FacebookApiException $e) {
-//		error_log($e);
-//		$user = null;
-//	}
-//}
-//
-// Login or logout url will be needed depending on current user state.
+// Login or logout url will be needed depending on current user state. --NO LONGER NEEDED
 //if ($user) {
 //$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/logout.php'));
 //} else {
@@ -136,26 +135,25 @@ if (isset($code)) {
   			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1414991652077072&version=v2.0";
   			fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
         <div id="container">
             <div id="header">
                 pic print
             </div>
 
             <div id="content">
-            	
-            	<? if ($user): ?>
-            		<a href='<?=$logoutUrl ?>'>
+            	<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+       <!--     	? if ($user): ?>
+            			<a href='<?=$logoutUrl ?>'>
             			<img src="fb-out.png" alt="Disconnect Facebook">
             		</a>
-            	<? endif; ?>
-            	<? if (!($user)): ?>
+            	? endif; ?>
+            	? if (!($user)): ?>
             		<a href='<?=$fb_loginUrl ?>'>
             			<img src="fb-in.png" alt="Connect with Facebook">
             		</a>
-            	<? endif; ?>
+            	? endif; ?>
             	
-            	</br>
+            -->	</br>
             	
             	<? if ($insta_active): ?>
 							<a href="./picprint.php">
