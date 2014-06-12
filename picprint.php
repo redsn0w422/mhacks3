@@ -136,6 +136,7 @@ if (isset($code)) {
   			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1414991652077072&version=v2.0";
   			fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
         <div id="container">
             <div id="header">
                 pic print
