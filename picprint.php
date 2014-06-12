@@ -218,9 +218,7 @@ if ($user) {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<div id="fb-login" class="fb-login-button" onclick="refresh()" data-auto-logout-link="true" scope="public_profile,user_photos" onlogin="checkLoginState();">
-	
-</div>
+<div class="fb-login-button" data-auto-logout-link="true" scope="public_profile,user_photos" onlogin="checkLoginState();location.reload(true);"></div>
 <div id="status">
 </div>
        <!-- <div id="fb-root"></div>
