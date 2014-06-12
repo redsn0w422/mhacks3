@@ -44,46 +44,46 @@ if (isset($code)) {
 }
 
 // ********** FACEBOOK ******************
-require 'facebook.php';
-$facebook = new Facebook(array(
-'appId'  => '1414991652077072',
-'secret' => 'd7f434a8b143b848819e782d7d184645',
-));
+//require 'facebook.php';
+//$facebook = new Facebook(array(
+//'appId'  => '1414991652077072',
+//'secret' => 'd7f434a8b143b848819e782d7d184645',
+//));
 
-Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
-Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
-$user = $facebook->getUser();
+//Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+//Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
+//$user = $facebook->getUser();
 
-if ($user) {
-	try {
-		$user_profile = $facebook->api($facebook->getUser() . '/photos/uploaded', array('access_token' => $facebook->getAccessToken()));
-		$pics = $user_profile;
-		$pics1 = $pics['data'];
-		$links = array();
-		$num = 0;
-		foreach($pics1 as $p)
-		{
-			$links[$num] = $p['source'];
-			$num = $num+1;
-		}
-		
-	} 
-	catch (FacebookApiException $e) {
-		error_log($e);
-		$user = null;
-	}
-}
-
+//if ($user) {
+//	try {
+//		$user_profile = $facebook->api($facebook->getUser() . '/photos/uploaded', array('access_token' => $facebook->getAccessToken()));
+//		$pics = $user_profile;
+//		$pics1 = $pics['data'];
+//		$links = array();
+//		$num = 0;
+//		foreach($pics1 as $p)
+//		{
+//			$links[$num] = $p['source'];
+//			$num = $num+1;
+//		}
+//		
+//	} 
+//	catch (FacebookApiException $e) {
+//		error_log($e);
+//		$user = null;
+//	}
+//}
+//
 // Login or logout url will be needed depending on current user state.
-if ($user) {
-$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/logout.php'));
-} else {
-$fb_loginUrl = $facebook->getLoginUrl(array('scope' => 'user_photos'));
-}
-
-$styleSuffix = rand(1,1000);
-
-?>
+//if ($user) {
+//$logoutUrl = $facebook->getLogoutUrl(array('next'=>'http://yashamostofi.com/drinkspls/logout.php'));
+//} else {
+//$fb_loginUrl = $facebook->getLoginUrl(array('scope' => 'user_photos'));
+///}
+//
+//$styleSuffix = rand(1,1000);
+//
+//?>
 
 <html>
     <head>
