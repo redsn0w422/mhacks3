@@ -6,7 +6,7 @@
 //
 //
 //
-// If you would like to see the contents if this file,
+// If you would like to see the contents of this file,
 // please email yasha.mostofi@gmail.com.
 //
 // Thanks!
